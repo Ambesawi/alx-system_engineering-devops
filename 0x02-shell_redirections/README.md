@@ -1,1 +1,1 @@
-s is the first script
+hello world script
