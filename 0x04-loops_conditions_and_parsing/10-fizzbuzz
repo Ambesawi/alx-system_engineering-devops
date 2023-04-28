@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Program that prints FizzBuzz sequence whn divisble to 5 and 3.
+# Program prints FizzBuzz sequence if divisble to 5 and 3.
 
 for i in {1..100}
 do
