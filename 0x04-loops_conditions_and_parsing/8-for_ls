@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Creating a script that lists files from existin file
+
+files_my_file="$(ls)"
+for file in $files_my_file;
+do
+    echo "$ffiles_my_fileile" | cut -f 2- -d '-'
+done
+
