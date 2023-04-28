@@ -5,7 +5,7 @@
 # Displays Y U no love me?! when receiving a SIGINT signal
 # Deletes the file /var/run/myscript.pid
 
-terminator_arnold() {
+terminator() {
   rm /var/run/holbertonscript.pid
   exit
 }
@@ -17,7 +17,7 @@ do
   echo "To infinity and beyond"
   sleep 2
   trap 'echo "Y U no love me?!"' SIGINT
-  trap 'echo "I hate the kill command" && terminator_arnold' SIGTERM
-  trap 'terminator_arnold' SIGQUIT
+  trap 'echo "I hate the kill command" && terminator' SIGTERM
+  trap 'terminator' SIGQUIT
 done
 
