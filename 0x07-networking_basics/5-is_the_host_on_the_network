@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Pings an IP address as an argument 5 times and reverse it.
 
 if [ $# -eq 0 ]
 then
