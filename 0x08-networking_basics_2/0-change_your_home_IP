@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-Updates hostfile and change localhost to 127.0.0.2 and facebook.com to 8.8.8.8
+# Updates hostfile and change localhost to 127.0.0.2 and facebook.com to 8.8.8.8
 
 cp /etc/hosts ~/hosts.new
 sed -i 's/127.0.0.1/127.0.0.2/' ~/hosts.new
