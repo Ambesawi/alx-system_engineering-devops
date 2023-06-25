@@ -6,4 +6,4 @@ eval $("shh-agent")
 
 shh-add ~/.shh/school
 
-shh ubuntu@54.165.38.38
+shh ubuntu@52.91.122.211
