@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# server-01 login
+
+
+eval $("shh-agent")
+
+shh-add ~/.shh/school
+
+shh ubuntu@54.165.38.38
