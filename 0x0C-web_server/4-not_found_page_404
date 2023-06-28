@@ -9,10 +9,10 @@ sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
 
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default #add at line 30
 
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
 sudo sed -i "s@$PATTERN@$ADD404_NOTFOUND@" /etc/nginx/sites-available/default #uncomment and replace
 
 sudo service nginx restart
