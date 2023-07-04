@@ -6,4 +6,4 @@ eval $("ssh-agenot")
 
 ssh-add ~/.ssh/school
 
-ssh ubuntu@18.210.15.118
+ssh ubuntu@100.25.143.0
