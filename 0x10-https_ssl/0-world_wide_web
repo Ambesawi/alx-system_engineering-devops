@@ -23,4 +23,3 @@ get_subdomains_info () {
 }
 
 get_subdomains_info $1 $2
-
