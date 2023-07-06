@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Display info about subdomains
+# shellcheck disable=SC2086
+
+
+get_subdomains_info () {
+
+    domain="$1"
+    sub_domain="$2"
+
+    if [ "$#" -eq 2 ]; then
+        record_type="$(dig "$sub_domain"."$domain"| grep -A1 'ANSWER SECTION:' |  tail -1 | awk '{print $4}')"
+        destionation_ip="$(dig "$sub_domain"."$domain" | grep -A1 'ANSWER SECTION:' |  tail -1 | awk '{print $5}')"
+        echo "The subdomain $sub_domain is a $record_type record and points to $destionation_ip"
+
+    elif [ "$#" -eq 1 ]; then
+        for subd in www lb-01 web-01 web-02; do
+        record_type="$(dig "$subd"."$domain" | grep -A1 'ANSWER SECTION:' |  tail -1 | awk '{print $4}')"
+        destionation_ip="$(dig "$subd"."$domain" | grep -A1 'ANSWER SECTION:' |  tail -1 | awk '{print $5}')"
+        echo "The subdomain $subd is a $record_type record and points to $destionation_ip"
+        done
+    fi
+}
+
+get_subdomains_info $1 $2
+
