@@ -1,6 +1,3 @@
-#!/usr/bin/env bash
-# Configure HAproxy to accept encrypted traffic for subdomain www.chiaracaprasi.tech
-
 global
         log /dev/log    local0
         log /dev/log    local1 notice
@@ -10,8 +7,6 @@ global
         user haproxy
         group haproxy
         daemon
-        maxconn 2048
-        tune.ssl.default-dh-param 2048
 
         # Default SSL material locations
         ca-base /etc/ssl/certs
@@ -37,27 +32,22 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-        option forwardfor
-        option http-server-close
 
-frontend www-http
-    bind *:80
-    reqadd X-Forwarded-Proto:\ http
-    default_backend www-backend
+frontend haproxy_balancer
+         bind *:80
+         mode http
+         default_backend web-servers
 
-frontend www-https
-    bind *:443 ssl crt /etc/haproxy/certs/www.ambes.tech.pem
+frontend https
+    bind *:443 ssl crt /etc/letsencrypt/keys/0000_key-certbot.pem
     reqadd X-Forwarded-Proto:\ https
-    acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-    use_backend letsencrypt-backend if letsencrypt-acl
-    default_backend www-backend
+    default_backend web-backend
 
+backend web-servers
+        balance roundrobin
+        option forwardfor
+        server 190329-web-01 34.207.211.122:80 check
+        server 190329-web-02 100.25.143.0:80 check
 
-backend www-backend
-   balance roundrobin
-   redirect scheme https if !{ ssl_fc }
-   server 190329-web-01 34.207.211.122:80 check
-   server 190329-web-02 100.25.143.0:80 check
-
-backend letsencrypt-backend
-   server letsencrypt 127.0.0.1:54321
+backend web-backend
+    server web-server 127.0.0.1:80
