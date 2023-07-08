@@ -39,8 +39,8 @@ frontend haproxy_balancer
          default_backend web-servers
 
 frontend https
-    bind *:443 ssl crt /etc/letsencrypt/keys/0000_key-certbot.pem
-    reqadd X-Forwarded-Proto:\ https
+    bind *:443 ssl crt /etc/letsencrypt/live/www.ambes.tech/fullchain.pem
+    http-request add-header X-Forwarded-Proto https
     default_backend web-backend
 
 backend web-servers
@@ -50,4 +50,6 @@ backend web-servers
         server 190329-web-02 100.25.143.0:80 check
 
 backend web-backend
-    server web-server 127.0.0.1:80
+        balance roundrobin
+        server 190329-web-01 34.207.211.122:80 check
+        server 190329-web-02 100.25.143.0:80 check
