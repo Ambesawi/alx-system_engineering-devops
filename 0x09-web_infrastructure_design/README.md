@@ -1,3 +1,20 @@
+# Web Infrastructure Design
+
+## Description
+
+This project focuses on understanding and designing the web infrastructure. The tasks involve whiteboarding diagrams that cover the web stack built with sysadmin/devops track projects. Each component's functionality and the concept of system redundancy are explained. Acronyms such as LAMP, SPOF, and QPS are familiarized.
+
+## Learning Objectives
+
+By the end of this project, you should be able to:
+
+- Draw a diagram covering the web stack built with sysadmin/devops track projects.
+- Explain the functionality of each component in the web stack.
+- Understand and explain the concept of system redundancy.
+- Familiarize yourself with acronyms such as LAMP, SPOF, and QPS.
+
+## Project Structure
+
 
 ## Tasks
 
