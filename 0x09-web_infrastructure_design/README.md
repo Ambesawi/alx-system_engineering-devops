@@ -14,6 +14,19 @@ By the end of this project, you should be able to:
 - Familiarize yourself with acronyms such as LAMP, SPOF, and QPS.
 
 ## Project Structure
+- ├── 0-simple_web_stack
+- │ ├── 0-simple_web_stack.png
+- │ └── README.md
+- ├── 1-distributed_web_infrastructure
+- │ ├── 1-distributed_web_infrastructure.png
+- │ └── README.md
+- ├── 2-secured_and_monitored_web_infrastructure
+- │ ├── 2-secured_and_monitored_web_infrastructure.png
+- │ └── README.md
+- ├── 3-scale_up
+- │ ├── 3-scale_up.png
+- │ └── README.md
+- └── README.md
 
 
 ## Tasks
